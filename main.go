@@ -2,7 +2,9 @@ package main
 
 import (
 	"dompet/config"
+	"dompet/helper"
 	"dompet/utils"
+	"fmt"
 
 	"os"
 
@@ -25,6 +27,12 @@ func main() {
 	var (
 		PORT = config.Config.Server.Port
 	)
+
+	/**
+	 * 1. Check the string is palindrome or not
+	 */
+	palindrome, value := helper.IsPallindrome("abbccd")
+	fmt.Println("1. Palindrome of " + "'" + value + "'" + " is " + fmt.Sprintf("%v", palindrome))
 
 	app := echo.New()
 	app.Validator = &utils.CustomValidator{Validator: validator.New()}
