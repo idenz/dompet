@@ -1,0 +1,21 @@
+server: 
+  appname: dompet-kilat
+  version: 1.0.0
+  appkey: 
+  port: 8000
+  tokenservice: 83013f026a0f66411f89d11e1859c3a4cc41079e480930703050f110421dc04327c5becab1d0efa067885c61b8849f2342317bcc522f8483c3b082b7439373e889cd064c81128ab2c5187f18c4c3f48100bea5e687b0e8a16648fb7c33db09df65ca056a8dace937315cfc11e6343b0d2a044d680c3a105d225766843002e0c33c09e0388279e060b40a11a6f253fcbe88d2e134531d1467b3e47ecf21e8885296543bcb6d152dc286e54be9b763bf4229547f726224a39e80013a3073fa679bcdab3c6eff1e1416d7c50656c63840550d38d005762a58a3bcf2ec77f00b0b79e4da41eabf2c11
+  env: development 
+
+jwt: 
+  secret: secretkey
+
+databases:
+- dbhost: localhost
+  dbuser: user
+  dbport: 27017
+  dbpass: 12345
+  dbname: dompet-kilat
+  dbprovider: mongodb
+  dbssl: disable
+  dbtz: Asia/Jakarta
+  db_automigrate: true
