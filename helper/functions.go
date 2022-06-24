@@ -29,3 +29,23 @@ func IsPallindrome(v string) (bool, string) {
 
 	return contains(answer, false), v
 }
+
+func FindPrimeByRange(start int, end int) []int {
+	answer := []int{}
+	for i := start; i <= end; i++ {
+
+		var prime bool = true
+
+		for p := 2; p < i; p++ {
+			if i != p && i%p == 0 {
+				prime = false
+			}
+		}
+
+		if prime {
+			answer = append(answer, i)
+		}
+	}
+
+	return answer
+}

@@ -34,6 +34,11 @@ func main() {
 	palindrome, value := helper.IsPallindrome("abbccd")
 	fmt.Println("1. Palindrome of " + "'" + value + "'" + " is " + fmt.Sprintf("%v", palindrome))
 
+	/**
+	 * 2. Find prime number by range
+	 */
+	fmt.Println("2. " + fmt.Sprintf("%v", helper.FindPrimeByRange(11, 40)))
+
 	app := echo.New()
 	app.Validator = &utils.CustomValidator{Validator: validator.New()}
 
