@@ -39,6 +39,12 @@ func main() {
 	 */
 	fmt.Println("2. " + fmt.Sprintf("%v", helper.FindPrimeByRange(11, 40)))
 
+	/**
+	 * 3. Grouping array group into separate sub arraygroup
+	 */
+	arr := []string{"a", "a", "a", "b", "c", "c", "b", "b", "b", "d", "d", "e", "e", "e"}
+	fmt.Println("3. " + fmt.Sprintf("%v", helper.Group(arr)))
+
 	app := echo.New()
 	app.Validator = &utils.CustomValidator{Validator: validator.New()}
 

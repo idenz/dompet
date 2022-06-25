@@ -14,6 +14,18 @@ func contains(s []bool, str bool) bool {
 	return !str
 }
 
+func findIndex(s [][]string, str string) int {
+	for i, n := range s {
+		for _, v := range n {
+			if str == v {
+				return i
+			}
+		}
+	}
+
+	return -1
+}
+
 func IsPallindrome(v string) (bool, string) {
 	splited := strings.Split(v, "")
 	var length int = len(splited)
@@ -44,6 +56,21 @@ func FindPrimeByRange(start int, end int) []int {
 
 		if prime {
 			answer = append(answer, i)
+		}
+	}
+
+	return answer
+}
+
+func Group(arr []string) [][]string {
+
+	answer := [][]string{}
+	for _, n := range arr {
+		index := findIndex(answer, n)
+		if index > -1 {
+			answer[index] = append(answer[index], n)
+		} else {
+			answer = append(answer, []string{n})
 		}
 	}
 
