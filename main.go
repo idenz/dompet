@@ -45,6 +45,12 @@ func main() {
 	arr := []string{"a", "a", "a", "b", "c", "c", "b", "b", "b", "d", "d", "e", "e", "e"}
 	fmt.Println("3. " + fmt.Sprintf("%v", helper.Group(arr)))
 
+	/**
+	 * 4. Count same element in an array withformat
+	 */
+	arr4 := []string{"a", "a", "a", "b", "c", "c", "b", "b", "b", "d", "d", "e", "e", "e"}
+	fmt.Println("4. " + fmt.Sprintf("%v", helper.CountSame(arr4)))
+
 	app := echo.New()
 	app.Validator = &utils.CustomValidator{Validator: validator.New()}
 

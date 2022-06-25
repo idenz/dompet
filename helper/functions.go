@@ -76,3 +76,28 @@ func Group(arr []string) [][]string {
 
 	return answer
 }
+
+type objectArray struct {
+	count int
+	name  string
+}
+
+func CountSame(arr []string) []objectArray {
+
+	answer := []objectArray{}
+	mapped := make(map[string]objectArray, 0)
+	for i, n := range arr {
+		if mapped[arr[i]].name == n {
+			mapped[n] = objectArray{mapped[n].count + 1, n}
+		} else {
+			mapped[n] = objectArray{1, n}
+		}
+	}
+
+	for _, v := range mapped {
+		answer = append(answer, v)
+	}
+
+	return answer
+
+}
