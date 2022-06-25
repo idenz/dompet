@@ -1,6 +1,7 @@
 package main
 
 import (
+	"dompet/applications"
 	"dompet/config"
 	"dompet/helper"
 	"dompet/utils"
@@ -57,6 +58,8 @@ func main() {
 
 	app := echo.New()
 	app.Validator = &utils.CustomValidator{Validator: validator.New()}
+
+	applications.Init(app.Group("/api"))
 
 	app.Logger.Fatal(app.Start(":" + PORT))
 }
