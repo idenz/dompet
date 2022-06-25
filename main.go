@@ -23,6 +23,10 @@ func init() {
 
 }
 
+type user struct {
+	Name string `bson:"name"`
+}
+
 func main() {
 	var (
 		PORT = config.Config.Server.Port

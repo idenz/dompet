@@ -9,11 +9,11 @@ server:
 jwt: 
   secret: secretkey
 
-databases:
-- dbhost: localhost
-  dbuser: user
+database:
+  dbhost: localhost
+  dbuser:
   dbport: 27017
-  dbpass: 12345
+  dbpass:
   dbname: dompet-kilat
   dbprovider: mongodb
   dbssl: disable

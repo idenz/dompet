@@ -4,11 +4,14 @@ go 1.17
 
 require (
 	github.com/BurntSushi/toml v0.3.1 // indirect
+	github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8 // indirect
+	github.com/go-bongo/go-dotaccess v0.0.0-20190924013105-74ea4f4ca4eb // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-playground/validator/v10 v10.11.0 // indirect
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
+	github.com/goonode/mogo v0.0.0-20220526213014-788c0d725ea3 // indirect
 	github.com/jinzhu/configor v1.2.1 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
@@ -17,6 +20,7 @@ require (
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/mattn/go-colorable v0.1.11 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
+	github.com/oleiade/reflections v1.0.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect

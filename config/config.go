@@ -9,9 +9,9 @@ import (
 )
 
 type Configuration struct {
-	Server    Server     `env:"server"`
-	JWT       JWT        `env:"jwt"`
-	Databases []Database `env:"databases"`
+	Server   Server   `env:"server"`
+	JWT      JWT      `env:"jwt"`
+	Database Database `env:"database"`
 }
 
 type Server struct {
