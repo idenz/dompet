@@ -34,7 +34,7 @@ func (c *Controller) Create(ctx echo.Context) (err error) {
 		return err
 	}
 
-	result := new(Response)
+	result := new(ResponseCreate)
 	bytes, err := json.Marshal(&finance)
 	if err != nil {
 		return err
@@ -49,5 +49,22 @@ func (c *Controller) Create(ctx echo.Context) (err error) {
 }
 
 func (c *Controller) GetAll(ctx echo.Context) (err error) {
-	return ctx.JSON(http.StatusOK, "ok")
+
+	finance, err := c.Service.GetAll()
+	if err != nil {
+		return err
+	}
+
+	result := new(ResponseMany)
+	bytes, err := json.Marshal(&finance)
+	if err != nil {
+		return err
+	}
+
+	err = json.Unmarshal(bytes, &result)
+	if err != nil {
+		return err
+	}
+
+	return ctx.JSON(http.StatusOK, result)
 }

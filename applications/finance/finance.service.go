@@ -8,7 +8,7 @@ import (
 
 type IService interface {
 	Create(payload *CreateRequest) (*Model, error)
-	GetAll() (*Model, error)
+	GetAll() (*[]Model, error)
 }
 
 type Service struct {
@@ -28,6 +28,6 @@ func (s *Service) Create(payload *CreateRequest) (*Model, error) {
 	return nil, nil
 }
 
-func (s *Service) GetAll() (*Model, error) {
+func (s *Service) GetAll() (*[]Model, error) {
 	return nil, nil
 }

@@ -10,6 +10,10 @@ type CreateRequest struct {
 	Sub   string `json:"sub"`
 }
 
-type Response struct {
+type ResponseCreate struct {
 	Data
+}
+
+type ResponseMany struct {
+	Data []Data
 }
