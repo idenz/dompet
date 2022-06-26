@@ -2,7 +2,6 @@ package applications
 
 import (
 	"context"
-	cinvoice "dompet/applications/conventional/invoice"
 	finances "dompet/applications/finance"
 	users "dompet/applications/user"
 	"dompet/config"
@@ -47,9 +46,11 @@ func Init(g *echo.Group) {
 	finances.New(finance_service).Route(g.Group("/finance"))
 	/** End Finance Router */
 
+	// conventional.Init(g.Group("/convetional"))
 	/** Conventional Invoice Router */
-	cinvoice_collection := db.Collection("finances")
-	cinvoice_service := cinvoice.NewService(cinvoice_collection, context.TODO())
-	cinvoice.New(cinvoice_service).Route(g.Group("/conventional/invoice"))
+	// cinvoice_collection := db.Collection("finances")
+	// cinvoice_service := conventional.NewService(cinvoice_collection, context.TODO())
+	// cinvoice.New(cinvoice_service).Route(g.Group("/conventional/invoice"))
 	/** End Conventional Invoice Router */
+
 }
