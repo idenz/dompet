@@ -2,12 +2,13 @@ package users
 
 import (
 	"context"
+	"encoding/json"
 
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type IUserService interface {
-	CreateUser(*UserModel) error
+	CreateUser(*UserRegisterRequest) (*UserModel, error)
 	GetUser(*string) (*UserModel, error)
 }
 
@@ -24,8 +25,26 @@ func NewService(_collection *mongo.Collection, _ctx context.Context) IUserServic
 	}
 }
 
-func (u *UserService) CreateUser(user *UserModel) error {
-	return nil
+func (u *UserService) CreateUser(payload *UserRegisterRequest) (*UserModel, error) {
+
+	user := new(UserModel)
+	bytes, err := json.Marshal(&payload)
+	if err != nil {
+		return nil, err
+
+	}
+
+	err = json.Unmarshal(bytes, &user)
+	if err != nil {
+		return nil, err
+	}
+
+	_, err = u.collection.InsertOne(u.ctx, user)
+	if err != nil {
+		return nil, err
+	}
+
+	return user, nil
 }
 
 func (u *UserService) GetUser(user *string) (*UserModel, error) {
