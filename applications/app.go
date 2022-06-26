@@ -7,6 +7,7 @@ import (
 	finances "dompet/applications/finance"
 	pinvoice "dompet/applications/productive/invoice"
 	"dompet/applications/reksadana"
+	"dompet/applications/sbn"
 	users "dompet/applications/user"
 	"dompet/config"
 	"dompet/database"
@@ -73,5 +74,11 @@ func Init(g *echo.Group) {
 	reksadana_service := reksadana.NewService(reksadana_collection, context.TODO())
 	reksadana.New(reksadana_service).Route(g.Group("/reksadana"))
 	/** End Reksadana Router */
+
+	/** Sbn Router */
+	sbn_collection := db.Collection("sbn")
+	sbn_service := sbn.NewService(sbn_collection, context.TODO())
+	sbn.New(sbn_service).Route(g.Group("/sbn"))
+	/** End Sbn Router */
 
 }
