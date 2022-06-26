@@ -6,6 +6,7 @@ import (
 	cosf "dompet/applications/convetional/osf"
 	finances "dompet/applications/finance"
 	pinvoice "dompet/applications/productive/invoice"
+	"dompet/applications/reksadana"
 	users "dompet/applications/user"
 	"dompet/config"
 	"dompet/database"
@@ -55,16 +56,22 @@ func Init(g *echo.Group) {
 	cinvoice.New(cinvoice_service).Route(g.Group("/conventional/invoice"))
 	/** End Conventional Invoice Router */
 
-	/** Conventional Invoice Router */
+	/** Conventional OSF Router */
 	cosf_collection := db.Collection("conventional_osf")
 	cosf_service := cosf.NewService(cosf_collection, context.TODO())
 	cosf.New(cosf_service).Route(g.Group("/conventional/osf"))
-	/** End Conventional Invoice Router */
+	/** End Conventional OSF Router */
 
-	/** Conventional Invoice Router */
+	/** Productive Invoice Router */
 	pinvoice_collection := db.Collection("productive_invoice")
 	pinvoice_service := pinvoice.NewService(pinvoice_collection, context.TODO())
 	pinvoice.New(pinvoice_service).Route(g.Group("/productive/invoice"))
-	/** End Conventional Invoice Router */
+	/** End Productive Invoice Router */
+
+	/** Reksadana Router */
+	reksadana_collection := db.Collection("reksadana")
+	reksadana_service := reksadana.NewService(reksadana_collection, context.TODO())
+	reksadana.New(reksadana_service).Route(g.Group("/reksadana"))
+	/** End Reksadana Router */
 
 }
