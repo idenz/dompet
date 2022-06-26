@@ -3,6 +3,11 @@
 - MongoDB
 - Docker (no required)
 
+### Clone project
+```sh
+> git clone https://github.com/idenz/dompet.git
+```
+
 ### Start Project
 
 ```sh
