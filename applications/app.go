@@ -2,6 +2,7 @@ package applications
 
 import (
 	"context"
+	"dompet/applications/authentication"
 	cinvoice "dompet/applications/convetional/invoice"
 	cosf "dompet/applications/convetional/osf"
 	finances "dompet/applications/finance"
@@ -42,8 +43,11 @@ func Init(g *echo.Group) {
 	/** User Router */
 	user_collection := db.Collection("users")
 	user_service := users.NewService(user_collection, context.TODO())
-	users.New(user_service).Route(g.Group("/user"))
 	/** End User Router */
+
+	/** Auth Router */
+	authentication.New(user_service).Route(g.Group("/auth"))
+	/** End Auth Router */
 
 	/** Finance Router */
 	finance_collection := db.Collection("finances")

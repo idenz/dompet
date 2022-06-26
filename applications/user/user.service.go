@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 
 	"go.mongodb.org/mongo-driver/mongo"
+	"golang.org/x/crypto/bcrypt"
 )
 
 type IService interface {
@@ -26,6 +27,9 @@ func NewService(_collection *mongo.Collection, _ctx context.Context) IService {
 }
 
 func (u *Service) Create(payload *RegisterRequest) (*Model, error) {
+
+	bytes, _ := bcrypt.GenerateFromPassword([]byte(payload.Password), bcrypt.DefaultCost)
+	payload.Password = string(bytes)
 
 	user := new(Model)
 	bytes, err := json.Marshal(&payload)
