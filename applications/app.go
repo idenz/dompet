@@ -2,6 +2,7 @@ package applications
 
 import (
 	"context"
+	finances "dompet/applications/finance"
 	users "dompet/applications/user"
 	"dompet/config"
 	"dompet/database"
@@ -36,5 +37,9 @@ func Init(g *echo.Group) {
 	user_collection := db.Collection("users")
 	user_service := users.NewService(user_collection, context.TODO())
 	users.New(user_service).Route(g.Group("/user"))
+
+	finance_collection := db.Collection("finances")
+	finance_service := finances.NewService(finance_collection, context.TODO())
+	finances.New(finance_service).Route(g.Group("/finance"))
 
 }

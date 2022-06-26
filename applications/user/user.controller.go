@@ -12,9 +12,9 @@ type Controller struct {
 }
 
 /** Constructors */
-func New(_userService IService) *Controller {
+func New(_service IService) *Controller {
 	return &Controller{
-		Service: _userService,
+		Service: _service,
 	}
 }
 
