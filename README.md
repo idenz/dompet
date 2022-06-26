@@ -1,5 +1,5 @@
 ## Quest Number 1 - 4
-<a href="https://imgbb.com/](https://github.com/idenz/dompet/blob/main/Dompet.png"><img src="https://i.ibb.co/y0XQR69/Dompet.png](https://github.com/idenz/dompet/blob/main/Dompet.png" alt="Dompet" border="0"></a>
+<a href="https://github.com/idenz/dompet/blob/main/Dompet.png"><img src="https://github.com/idenz/dompet/blob/main/Dompet.png" alt="Dompet" border="0"></a>
 
 ## Requirement
 - Golang
