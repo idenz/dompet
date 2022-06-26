@@ -1,19 +1,19 @@
 package finances
 
-type Data struct {
-	Model
-}
-
 type CreateRequest struct {
 	Name  string `json:"name" validate:"required"`
 	Count int    `json:"count"`
 	Sub   string `json:"sub"`
 }
 
-type ResponseCreate struct {
-	Data
+type Response struct {
+	Code   int    `json:"code"`
+	Status string `json:"status"`
+	Data   Model  `json:"data"`
 }
 
 type ResponseMany struct {
-	Data []Data
+	Code   int      `json:"code"`
+	Status string   `json:"status"`
+	Data   *[]Model `json:"data"`
 }

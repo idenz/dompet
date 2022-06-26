@@ -1,7 +1,6 @@
 package finances
 
 import (
-	"encoding/json"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -34,15 +33,10 @@ func (c *Controller) Create(ctx echo.Context) (err error) {
 		return err
 	}
 
-	result := new(ResponseCreate)
-	bytes, err := json.Marshal(&finance)
-	if err != nil {
-		return err
-	}
-
-	err = json.Unmarshal(bytes, &result)
-	if err != nil {
-		return err
+	result := &Response{
+		Code:   http.StatusOK,
+		Status: "Success",
+		Data:   *finance,
 	}
 
 	return ctx.JSON(http.StatusOK, result)
@@ -50,20 +44,15 @@ func (c *Controller) Create(ctx echo.Context) (err error) {
 
 func (c *Controller) GetAll(ctx echo.Context) (err error) {
 
-	finance, err := c.Service.GetAll()
+	finaces, err := c.Service.GetAll()
 	if err != nil {
 		return err
 	}
 
-	result := new(ResponseMany)
-	bytes, err := json.Marshal(&finance)
-	if err != nil {
-		return err
-	}
-
-	err = json.Unmarshal(bytes, &result)
-	if err != nil {
-		return err
+	result := &ResponseMany{
+		Code:   http.StatusOK,
+		Status: "Success",
+		Data:   finaces,
 	}
 
 	return ctx.JSON(http.StatusOK, result)
