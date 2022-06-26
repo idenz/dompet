@@ -5,6 +5,7 @@ import (
 	cinvoice "dompet/applications/convetional/invoice"
 	cosf "dompet/applications/convetional/osf"
 	finances "dompet/applications/finance"
+	pinvoice "dompet/applications/productive/invoice"
 	users "dompet/applications/user"
 	"dompet/config"
 	"dompet/database"
@@ -58,6 +59,12 @@ func Init(g *echo.Group) {
 	cosf_collection := db.Collection("conventional_osf")
 	cosf_service := cosf.NewService(cosf_collection, context.TODO())
 	cosf.New(cosf_service).Route(g.Group("/conventional/osf"))
+	/** End Conventional Invoice Router */
+
+	/** Conventional Invoice Router */
+	pinvoice_collection := db.Collection("productive_invoice")
+	pinvoice_service := pinvoice.NewService(pinvoice_collection, context.TODO())
+	pinvoice.New(pinvoice_service).Route(g.Group("/productive/invoice"))
 	/** End Conventional Invoice Router */
 
 }
