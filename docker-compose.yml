@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+ # Mongodb service
+ mongo_db:
+  container_name: db_container
+  image: mongo:latest
+  restart: always
+  volumes:
+    - mongo_db:/data/db
+ 
+ # Golang API Service
+ api:
+  build: .
+  ports:
+    - 8000:8000
+  depends_on:
+    - mongo_db
+
+volumes:
+  mongo_db: {}
