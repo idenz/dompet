@@ -1,13 +1,14 @@
 ## Requirement
 - Golang
 - MongoDB
+- Docker (no required)
 
 ### Start Project
 
 ```sh
-/** Docker run */
+Docker running
 > docker compose up
 
-/** Golang run */
+Golang running
 > go run main.go
 ```
