@@ -24,7 +24,7 @@ func Init(g *echo.Group) {
 		VERSION = config.Config.Server.Version
 	)
 
-	g.GET("/", func(c echo.Context) error {
+	g.GET("", func(c echo.Context) error {
 		message := fmt.Sprintf("Welcome to %s version %s", APP, VERSION)
 		return c.String(http.StatusOK, message)
 	})
