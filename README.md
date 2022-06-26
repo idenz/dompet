@@ -5,17 +5,17 @@
 
 ### Clone project
 ```sh
-git clone https://github.com/idenz/dompet.git
+> git clone https://github.com/idenz/dompet.git
 ```
 
 ### Start Project
 
-Docker running
-```sh
-docker compose up
-```
+Don't change dbhost in folder config.yml if you use docker compose
 
-Golang running
 ```sh
-go run main.go
+# Docker running
+> docker compose up
+
+# Golang running
+> go run main.go
 ```
