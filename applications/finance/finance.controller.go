@@ -21,16 +21,25 @@ func (c *Controller) Create(ctx echo.Context) (err error) {
 
 	payload := new(CreateRequest)
 	if err = ctx.Bind(payload); err != nil {
-		return err
+		return ctx.JSON(http.StatusBadRequest, &ResponseError{
+			Code:   http.StatusBadRequest,
+			Status: "Failed create data",
+		})
 	}
 
 	if err = ctx.Validate(payload); err != nil {
-		return err
+		return ctx.JSON(http.StatusBadRequest, &ResponseError{
+			Code:   http.StatusBadRequest,
+			Status: "Validation Failed",
+		})
 	}
 
 	finance, err := c.Service.Create(payload)
 	if err != nil {
-		return err
+		return ctx.JSON(http.StatusBadRequest, &ResponseError{
+			Code:   http.StatusBadRequest,
+			Status: "Failed create data",
+		})
 	}
 
 	result := &Response{
@@ -46,7 +55,10 @@ func (c *Controller) GetAll(ctx echo.Context) (err error) {
 
 	finaces, err := c.Service.GetAll()
 	if err != nil {
-		return err
+		return ctx.JSON(http.StatusBadRequest, &ResponseError{
+			Code:   http.StatusBadRequest,
+			Status: "Internal Server Error",
+		})
 	}
 
 	result := &ResponseMany{

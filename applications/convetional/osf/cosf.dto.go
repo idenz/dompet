@@ -19,3 +19,8 @@ type ResponseMany struct {
 	Status string   `json:"status"`
 	Data   *[]Model `json:"data"`
 }
+
+type ResponseError struct {
+	Code   int    `json:"code"`
+	Status string `json:"status"`
+}

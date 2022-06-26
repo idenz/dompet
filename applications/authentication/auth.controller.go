@@ -58,14 +58,14 @@ func (c *Controller) Register(ctx echo.Context) (err error) {
 
 	payload := new(users.RegisterRequest)
 	if err = ctx.Bind(payload); err != nil {
-		return ctx.JSON(http.StatusBadRequest, &ResponseLogin{
+		return ctx.JSON(http.StatusBadRequest, &ResponseError{
 			Code:   http.StatusBadRequest,
 			Status: "Failed create user",
 		})
 	}
 
 	if err = ctx.Validate(payload); err != nil {
-		return ctx.JSON(http.StatusBadRequest, &ResponseLogin{
+		return ctx.JSON(http.StatusBadRequest, &ResponseError{
 			Code:   http.StatusBadRequest,
 			Status: "Validation Failed",
 		})
@@ -73,7 +73,7 @@ func (c *Controller) Register(ctx echo.Context) (err error) {
 
 	user, err := c.UserService.Create(payload)
 	if err != nil {
-		return ctx.JSON(http.StatusBadRequest, &ResponseLogin{
+		return ctx.JSON(http.StatusBadRequest, &ResponseError{
 			Code:   http.StatusBadRequest,
 			Status: "Failed create user",
 		})
