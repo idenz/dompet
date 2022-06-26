@@ -10,7 +10,7 @@
 
 ### Start Project
 
-Don't change dbhost in folder config.yml if you use docker compose
+Don't change dbhost in folder [config.yml](https://github.com/idenz/dompet/blob/main/config.yml) config.yml if you use docker compose
 
 ```sh
 # Docker running
