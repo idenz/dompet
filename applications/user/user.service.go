@@ -7,27 +7,27 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-type IUserService interface {
-	CreateUser(*UserRegisterRequest) (*UserModel, error)
-	GetUser(*string) (*UserModel, error)
+type IService interface {
+	Create(*RegisterRequest) (*Model, error)
+	GetProfile(*string) (*Model, error)
 }
 
-type UserService struct {
+type Service struct {
 	collection *mongo.Collection
 	ctx        context.Context
 }
 
 /** Constructors */
-func NewService(_collection *mongo.Collection, _ctx context.Context) IUserService {
-	return &UserService{
+func NewService(_collection *mongo.Collection, _ctx context.Context) IService {
+	return &Service{
 		collection: _collection,
 		ctx:        _ctx,
 	}
 }
 
-func (u *UserService) CreateUser(payload *UserRegisterRequest) (*UserModel, error) {
+func (u *Service) Create(payload *RegisterRequest) (*Model, error) {
 
-	user := new(UserModel)
+	user := new(Model)
 	bytes, err := json.Marshal(&payload)
 	if err != nil {
 		return nil, err
@@ -47,6 +47,6 @@ func (u *UserService) CreateUser(payload *UserRegisterRequest) (*UserModel, erro
 	return user, nil
 }
 
-func (u *UserService) GetUser(user *string) (*UserModel, error) {
+func (u *Service) GetProfile(user *string) (*Model, error) {
 	return nil, nil
 }

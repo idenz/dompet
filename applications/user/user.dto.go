@@ -1,15 +1,15 @@
 package users
 
-type UserData struct {
-	UserModel
+type Data struct {
+	Model
 }
 
-type UserRegisterRequest struct {
+type RegisterRequest struct {
 	Username string `json:"username" validate:"required"`
 	Email    string `json:"email" validate:"required"`
 	Password string `json:"password" validate:"required"`
 }
 
-type UserResponse struct {
-	UserData
+type Response struct {
+	Data
 }
