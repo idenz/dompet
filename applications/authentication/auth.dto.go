@@ -7,6 +7,11 @@ type Data struct {
 	Email string `json:"email"`
 }
 
+type AuthLoginRequest struct {
+	Email    string `json:"email"`
+	Password string `json:"password"`
+}
+
 type ResponseRegister struct {
 	Code   int         `json:"code"`
 	Status string      `json:"status"`
@@ -17,4 +22,9 @@ type ResponseLogin struct {
 	Code   int    `json:"code"`
 	Status string `json:"status"`
 	Data   Data   `json:"data"`
+}
+
+type ResponseError struct {
+	Code   int    `json:"code"`
+	Status string `json:"status"`
 }

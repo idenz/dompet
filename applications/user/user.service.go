@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -11,6 +12,8 @@ import (
 type IService interface {
 	Create(*RegisterRequest) (*Model, error)
 	GetProfile(*string) (*Model, error)
+	FindByEmail(*string) (*Model, error)
+	GenerateToken(*Model) (string, error)
 }
 
 type Service struct {
@@ -49,6 +52,25 @@ func (u *Service) Create(payload *RegisterRequest) (*Model, error) {
 	}
 
 	return user, nil
+}
+
+func (u *Service) FindByEmail(email *string) (*Model, error) {
+	var user *Model
+
+	query := bson.D{bson.E{Key: "email", Value: email}}
+	err := u.collection.FindOne(u.ctx, query).Decode(&user)
+
+	return user, err
+}
+
+func (u *Service) GenerateToken(user *Model) (string, error) {
+
+	others := make(map[string]interface{}, 0)
+	token, err := user.GenerateToken(others)
+	if err != nil {
+		return "", err
+	}
+	return token, err
 }
 
 func (u *Service) GetProfile(user *string) (*Model, error) {

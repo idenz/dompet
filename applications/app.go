@@ -46,7 +46,8 @@ func Init(g *echo.Group) {
 	/** End User Router */
 
 	/** Auth Router */
-	authentication.New(user_service).Route(g.Group("/auth"))
+	auth_service := authentication.NewService(user_service, user_collection, context.TODO())
+	authentication.New(user_service, auth_service).Route(g.Group("/auth"))
 	/** End Auth Router */
 
 	/** Finance Router */
