@@ -5,15 +5,17 @@
 
 ### Clone project
 ```sh
-> git clone https://github.com/idenz/dompet.git
+git clone https://github.com/idenz/dompet.git
 ```
 
 ### Start Project
 
-```sh
 Docker running
-> docker compose up
+```sh
+docker compose up
+```
 
 Golang running
-> go run main.go
+```sh
+go run main.go
 ```
